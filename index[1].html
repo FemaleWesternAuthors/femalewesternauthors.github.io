@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Female Western Authors — Recognition and Reviews recognizes and reviews female Western authors through non-paid reviews and a community of more than 2,000 members.">
+<title>Female Western Authors — Recognition & Reviews</title>
+<style>
+:root{
+  --ink:#2b211b;
+  --paper:#fbf4e8;
+  --cream:#f2dfc5;
+  --rust:#9a4e2d;
+  --rust2:#6e3421;
+  --sage:#64735e;
+  --gold:#c28b38;
+  --brown:#493126;
+  --line:#dac4a3;
+  --white:#fffdf8;
+  --shadow:0 12px 30px rgba(57,37,25,.12);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;line-height:1.65;
+}
+a{color:var(--rust2)}
+a:hover,a:focus{color:var(--rust)}
+.wrap{width:min(1140px,92vw);margin:auto}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;background:white;padding:.8rem;z-index:999}
+header{
+  position:sticky;top:0;z-index:30;background:rgba(251,244,232,.96);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;min-height:76px}
+.brand{text-decoration:none;color:var(--ink);font-weight:800;letter-spacing:.02em}
+.brand small{display:block;color:var(--rust);font:700 .68rem Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+nav ul{display:flex;gap:1rem;list-style:none;padding:0;margin:0;flex-wrap:wrap;justify-content:flex-end}
+nav a{text-decoration:none;color:var(--ink);font:700 .88rem Arial,sans-serif}
+nav a:hover,nav a:focus{color:var(--rust)}
+.hero{
+  min-height:72vh;display:grid;place-items:center;text-align:center;padding:5.5rem 0 4.5rem;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(194,139,56,.18),transparent 24%),
+    radial-gradient(circle at 82% 20%,rgba(100,115,94,.13),transparent 20%),
+    linear-gradient(180deg,#f6e5cd 0%,#fbf4e8 66%,#eedcc4 100%);
+  position:relative;overflow:hidden
+}
+.hero:after{
+  content:"";position:absolute;left:-4%;right:-4%;bottom:-45px;height:160px;
+  background:var(--rust2);opacity:.11;
+  clip-path:polygon(0 78%,10% 58%,18% 70%,29% 36%,38% 68%,49% 42%,58% 72%,68% 38%,78% 67%,89% 44%,100% 70%,100% 100%,0 100%)
+}
+.eyebrow{font:800 .78rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.19em;color:var(--rust)}
+h1,h2,h3{line-height:1.12}
+h1{font-size:clamp(3rem,7.6vw,6.3rem);max-width:1000px;margin:.4rem auto 1rem;letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--rust)}
+.lede{max-width:790px;margin:0 auto 1.8rem;color:#5a4638;font-size:clamp(1.08rem,2.3vw,1.4rem)}
+.actions{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.btn{
+  display:inline-block;border-radius:999px;padding:.88rem 1.2rem;text-decoration:none;
+  font:800 .9rem Arial,sans-serif;border:2px solid var(--rust);transition:.2s ease
+}
+.btn.primary{background:var(--rust);color:white}
+.btn.secondary{color:var(--rust);background:transparent}
+.btn:hover,.btn:focus{transform:translateY(-2px);box-shadow:0 7px 18px rgba(80,42,26,.18)}
+.factbar{background:var(--brown);color:#fff9ef;padding:1.1rem 0}
+.factgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center}
+.factgrid strong{display:block;font-size:1.55rem;color:white}
+.factgrid span{font:700 .74rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#e4cfb6}
+section{padding:4.8rem 0}
+.alt{background:#f0dfc7}
+.section-head{max-width:800px;margin-bottom:2.2rem}
+.section-head h2{font-size:clamp(2.15rem,5vw,3.65rem);margin:.25rem 0 .8rem}
+.section-head p{margin:0;color:#655043;font-size:1.08rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.45rem;box-shadow:var(--shadow)
+}
+.card h3{font-size:1.35rem;margin:.25rem 0 .55rem}
+.card p{margin:.55rem 0}
+.kicker{display:inline-block;color:var(--rust);font:800 .72rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.meta{color:#746052;font:700 .78rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+.initial{
+  width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
+  background:var(--rust);color:white;font-size:1.3rem;font-weight:700;margin-bottom:1rem
+}
+.feature{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:stretch
+}
+.feature .panel{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:2rem;box-shadow:var(--shadow)}
+.feature .dark{background:var(--brown);color:#fff9ef;border-color:var(--brown)}
+.feature .dark p{color:#ead9c6}
+.chips{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+.chip{border:1px solid var(--line);border-radius:999px;padding:.45rem .7rem;background:#fff9ef;font:700 .78rem Arial,sans-serif}
+.booklist{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.book{
+  background:rgba(255,253,248,.76);border:1px solid var(--line);border-radius:14px;padding:1rem
+}
+.book strong{display:block}
+.book em{color:#6b5547}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem}
+.promise .card{box-shadow:none}
+.seal{font-size:1.55rem;color:var(--gold)}
+.submit{
+  background:var(--brown);color:white;border-radius:26px;padding:2rem;display:grid;
+  grid-template-columns:.9fr 1.1fr;gap:2rem;box-shadow:var(--shadow)
+}
+.submit p{color:#efdeca}
+form{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+label{font:700 .77rem Arial,sans-serif;letter-spacing:.04em}
+label.full{grid-column:1/-1}
+input,select,textarea{
+  width:100%;margin-top:.35rem;padding:.82rem .9rem;border:1px solid #d7c5aa;border-radius:10px;
+  font:1rem Arial,sans-serif;background:#fffdf9;color:#2b211b
+}
+textarea{min-height:110px;resize:vertical}
+button{
+  grid-column:1/-1;justify-self:start;border:0;border-radius:999px;padding:.9rem 1.2rem;
+  background:var(--gold);color:#291c15;font-weight:800;cursor:pointer
+}
+.note{font-size:.88rem;color:#7a6556}
+.submit .note{color:#e5d1bb;grid-column:1/-1;margin:0}
+.disclosure{background:#fff7e7;border:1px solid #e0c69f;border-radius:14px;padding:1rem;margin-top:1.2rem}
+footer{background:#251914;color:#dfcfbe;padding:2.5rem 0}
+.foot{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.foot strong{color:white}
+.small{font-size:.84rem;color:#c7b3a0}
+
+.author-photo{
+  width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;
+  border:1px solid var(--line);margin-bottom:1rem;background:#ead9c5
+}
+.featured-author{
+  display:grid;grid-template-columns:.72fr 1.28fr;gap:2rem;align-items:center;
+  background:var(--white);border:1px solid var(--line);border-radius:24px;
+  padding:2rem;box-shadow:var(--shadow);margin-bottom:2rem
+}
+.featured-author h3{font-size:clamp(2rem,4vw,3rem);margin:.25rem 0 .7rem}
+.featured-author .books{display:grid;gap:.65rem;margin-top:1rem}
+.featured-author .bookline{
+  border-left:4px solid var(--rust);padding:.55rem .8rem;background:#fff8ed;border-radius:0 10px 10px 0
+}
+
+@media(max-width:950px){
+  .grid.four{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:820px){
+  .featured-author{grid-template-columns:1fr}
+  header{position:relative}
+  .nav{padding:1rem 0;align-items:flex-start;flex-direction:column}
+  nav ul{justify-content:flex-start}
+  .grid,.grid.four,.feature,.submit,.promise,.factgrid{grid-template-columns:1fr}
+  .booklist{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  label.full,button,.submit .note{grid-column:auto}
+  .hero{min-height:auto;padding:4.7rem 0}
+  section{padding:3.7rem 0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">Female Western Authors<small>Recognition & Reviews</small></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#authors">Authors</a></li>
+        <li><a href="#reading">Reading Trail</a></li>
+        <li><a href="#index">Author Index</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#submit">Submit</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="eyebrow">Honoring the Women Who Write the West</div>
+    <h1>Female Western Authors<br><em>Recognition & Reviews</em></h1>
+    <p class="lede">A community dedicated to recognizing female Western authors, sharing thoughtful non-paid reviews, and helping readers discover the women preserving and reimagining the American West.</p>
+    <div class="actions">
+      <a class="btn primary" href="#authors">Explore Authors</a>
+      <a class="btn secondary" href="#submit">Suggest an Author or Book</a>
+    </div>
+  </div>
+</section>
+
+<div class="factbar">
+  <div class="wrap factgrid">
+    <div><strong>2020</strong><span>Founded</span></div>
+    <div><strong>2,000+</strong><span>Member Community</span></div>
+    <div><strong>Leadership</strong><span>Announcement Coming Soon</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap feature">
+    <div class="panel">
+      <div class="eyebrow">Our Purpose</div>
+      <h2>Recognition with substance.</h2>
+      <p><strong>Female Western Authors — Recognition and Reviews</strong> was founded in 2020 for a clear purpose: to <strong>Recognize and Review Female Western Authors</strong>.</p>
+      <p>With more than 2,000 members, the community brings readers and writers together around the fiction, history, memoir, poetry, ranch life, and regional stories that keep the West alive on the page.</p>
+      <div class="chips">
+        <span class="chip">Western Fiction</span>
+        <span class="chip">History</span>
+        <span class="chip">Memoir</span>
+        <span class="chip">Ranch Life</span>
+        <span class="chip">Poetry</span>
+        <span class="chip">Southwest Mystery</span>
+      </div>
+    </div>
+    <div class="panel dark">
+      <div class="eyebrow" style="color:#e5b86f">From the Founding Committee</div>
+      <h2>Building recognition for women who write the West.</h2>
+      <p>Female Western Authors — Recognition & Reviews was created to give women writing Western stories, history, memoir, poetry, and regional literature a stronger place to be discovered and discussed.</p>
+      <p>Our focus remains simple: recognize female Western authors, provide thoughtful non-paid reviews, and build a welcoming community of readers and writers who value the literature of the American West.</p>
+      <p>As the organization grows, leadership announcements and officer biographies will be added here.</p>
+      <p class="small" style="color:#dbc7b1">More member features, reviews, and author recognitions are being added as the site develops.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="authors">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Heritage Voices</div>
+      <h2>Women who helped shape the literature of the West.</h2>
+      <p>Our reading archive begins with established authors whose work gives readers a strong foundation in Western and frontier literature.</p>
+    </div>
+
+    <div class="grid four">
+      <article class="card">
+        <div class="initial">WC</div>
+        <span class="kicker">1873–1947</span>
+        <h3>Willa Cather</h3>
+        <p>Cather transformed her Nebraska experiences into enduring literature about prairie settlement, migration, place, and belonging.</p>
+        <p><strong>Begin with:</strong> <em>O Pioneers!</em>, <em>My Ántonia</em>, and <em>Death Comes for the Archbishop</em>.</p>
+        <p class="meta">Pulitzer Prize: <em>One of Ours</em></p>
+        <p><a href="https://www.willacather.org/about/life-literature" target="_blank" rel="noopener">National Willa Cather Center ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">MS</div>
+        <span class="kicker">1896–1966</span>
+        <h3>Mari Sandoz</h3>
+        <p>Born in Nebraska’s Sandhills, Sandoz became a novelist, historian, and major chronicler of the Great Plains and the American West.</p>
+        <p><strong>Begin with:</strong> <em>Old Jules</em>, <em>Crazy Horse</em>, and <em>Cheyenne Autumn</em>.</p>
+        <p class="meta"><em>Old Jules</em> won the 1935 Atlantic Monthly nonfiction prize</p>
+        <p><a href="https://history.nebraska.gov/collection_section/mari-sandoz-1896-1966-rg1274-am/" target="_blank" rel="noopener">History Nebraska ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">DJ</div>
+        <span class="kicker">1905–1984</span>
+        <h3>Dorothy M. Johnson</h3>
+        <p>Johnson grew up in Montana and built a celebrated career writing Western fiction rooted in frontier history, folklore, and character.</p>
+        <p><strong>Famous stories:</strong> “The Man Who Shot Liberty Valance,” “A Man Called Horse,” and “The Hanging Tree.”</p>
+        <p class="meta">Seventeen books and more than fifty short stories</p>
+        <p><a href="https://montanawomenshistory.mt.gov/News/news-articles/A-Witty-Gritty-Little-Bobcat-of-a-Woman-The-Western-Writings-of-Dorothy-M-Johnson" target="_blank" rel="noopener">Montana Women’s History ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">LW</div>
+        <span class="kicker">1867–1957</span>
+        <h3>Laura Ingalls Wilder</h3>
+        <p>Wilder drew on her own pioneer experiences to create the <em>Little House</em> books, preserving an accessible literary record of family life during westward expansion.</p>
+        <p><strong>Begin with:</strong> <em>Little House on the Prairie</em> and continue through the series.</p>
+        <p class="meta">Pioneer life remembered through literature</p>
+        <p><a href="https://lauraingallswilderhome.com/" target="_blank" rel="noopener">Laura Ingalls Wilder Historic Home & Museum ↗</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Contemporary Reading Trail</div>
+      <h2>Four modern voices to explore.</h2>
+      <p>These authors illustrate the breadth of today’s Western writing—from Texas storytelling and Colorado historical fiction to Southwestern mysteries and Arizona frontier sagas.</p>
+    </div>
+
+
+    <article class="featured-author">
+      <div>
+        <img class='author-photo' src='assets/BJ_Stone_Author_Photo_2026_ORIGINAL.jpg' alt='BJ Stone, Western author'>
+      </div>
+      <div>
+        <span class="kicker">Featured Contemporary Author</span>
+        <h3>BJ Stone</h3>
+        <p>BJ Stone is a Western author, ranch camp host, lifelong horsewoman, and mule rider whose writing draws on decades of firsthand experience with horses, mules, ranch life, and the people and places of Central Texas.</p>
+        <p>Her work combines documentary history, personal experience, and a deep interest in preserving Western stories before they disappear.</p>
+        <div class="books">
+          <div class="bookline"><strong><em>Parrie Haynes Ranch: A Promise Kept</em></strong><br><span>The History, Legacy, and Charitable Trust</span></div>
+          <div class="bookline"><strong><em>The Complete Guide for New Mule Riders</em></strong><br><span>In development — practical instruction for riders transitioning to mules.</span></div>
+        </div>
+        <p class="note"><strong>Author focus:</strong> Western history, ranch life, equine experience, documentary storytelling, and the preservation of regional heritage.</p>
+      </div>
+    </article>
+
+    <div class="grid four">
+      <article class="card">
+        <div class="initial">JT</div>
+        <h3>Jodi Thomas</h3>
+        <p>A Texas-centered novelist whose stories span past and present, Thomas has published more than sixty novels and has been recognized by the Texas Literary Hall of Fame.</p>
+        <p><strong>Explore:</strong> her Texas-set historical and contemporary series.</p>
+        <p><a href="https://www.jodithomas.com/page3" target="_blank" rel="noopener">Author biography ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">SD</div>
+        <h3>Sandra Dallas</h3>
+        <p>A Colorado author of historical fiction and nonfiction whose work frequently draws on the Rocky Mountain West, community, survival, and women’s lives.</p>
+        <p><strong>Explore:</strong> <em>Westering Women</em>, <em>Tallgrass</em>, and <em>The Last Midwife</em>.</p>
+        <p><a href="https://www.sandradallas.com/bio" target="_blank" rel="noopener">Author biography ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">AH</div>
+        <h3>Anne Hillerman</h3>
+        <p>A bestselling mystery writer whose novels continue the Navajo detective world created by Tony Hillerman, with Bernadette Manuelito at the center of much of her work.</p>
+        <p><strong>Explore:</strong> <em>Spider Woman’s Daughter</em> and the Leaphorn/Chee/Manuelito mysteries.</p>
+        <p><a href="https://www.annehillerman.com/bio" target="_blank" rel="noopener">Author biography ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">NT</div>
+        <h3>Nancy E. Turner</h3>
+        <p>A Texas-born, Arizona-based novelist known for frontier fiction centered on women’s lives, family, survival, and the territorial Southwest.</p>
+        <p><strong>Explore:</strong> <em>These Is My Words</em>, <em>Sarah’s Quilt</em>, and <em>The Star Garden</em>.</p>
+        <p><a href="https://us.macmillan.com/author/nancyeturner" target="_blank" rel="noopener">Publisher biography ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">BB</div>
+        <h3>B. M. Bower</h3>
+        <p>Bertha Muzzy Bower was an early mass-market Western novelist whose fiction drew heavily on ranch life and the open-range culture of Montana.</p>
+        <p><strong>Explore:</strong> <em>Chip of the Flying U</em> and her long-running body of Western fiction.</p>
+        <p class="meta">68 Western novels, 1906–1940</p>
+        <p><a href="https://legacy-westhist.libraries.ou.edu/locations/docs/westhist/bower/" target="_blank" rel="noopener">University of Oklahoma Western History Collections ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">MD</div>
+        <h3>Mourning Dove</h3>
+        <p>Mourning Dove was an Indigenous author from the Pacific Northwest whose work preserved tribal stories and brought a Native woman’s voice into early twentieth-century literature of the West.</p>
+        <p><strong>Explore:</strong> <em>Cogewea, the Half-Blood</em> and collections of her traditional stories.</p>
+        <p><a href="https://www.si.edu/es/object/mourning-doves-stories-edited-clifford-e-trafzer-and-richard-d-scheuerman%3Asiris_sil_739082" target="_blank" rel="noopener">Smithsonian Libraries & Archives ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">LM</div>
+        <h3>Linda Lael Miller</h3>
+        <p>A bestselling author of historical and contemporary fiction, Miller has written more than one hundred novels, many reflecting her lifelong connection to the West.</p>
+        <p><strong>Explore:</strong> her McKettrick, Creed, and other Western family series.</p>
+        <p class="meta">Published since 1983</p>
+        <p><a href="https://www.simonandschuster.com/authors/Linda-Lael-Miller/50003743" target="_blank" rel="noopener">Publisher biography ↗</a></p>
+      </article>
+
+      <article class="card">
+        <div class="initial">KW</div>
+        <h3>Karen Witemeyer</h3>
+        <p>A Texas author of historical romance whose novels are rooted in nineteenth-century Texas and combine Western settings with humor, adventure, and faith.</p>
+        <p><strong>Explore:</strong> her Texas-set historical romances, including <em>If the Boot Fits</em>.</p>
+        <p><a href="https://www.karenwitemeyer.com/about-karen.html" target="_blank" rel="noopener">Official biography ↗</a></p>
+      </article>
+    </div>
+
+    <div class="disclosure"><strong>Editorial note:</strong> Inclusion on this reading trail is for discovery and historical/literary context. It does not state or imply that an author is a member of Female Western Authors — Recognition and Reviews, has submitted a book, or has received an organizational review.</div>
+  </div>
+</section>
+
+<section class="alt" id="reading">
+  <div class="wrap feature">
+    <div>
+      <div class="eyebrow">The Western Shelf</div>
+      <h2>Where should a new reader begin?</h2>
+      <p>Use these titles as an introductory trail through prairie literature, Great Plains history, Montana short fiction, pioneer memoir-inspired fiction, Colorado historical fiction, and Arizona frontier storytelling.</p>
+    </div>
+    
+    <div class="disclosure" style="margin-bottom:1.4rem">
+      <strong>Start Here:</strong> For prairie settlement, try <em>My Ántonia</em>. For Great Plains history, begin with <em>Old Jules</em>. For classic Western short fiction, explore Dorothy M. Johnson. For Texas-set contemporary discovery, visit Jodi Thomas or Karen Witemeyer. For ranch and documentary history, explore BJ Stone.
+    </div>
+
+    <div class="booklist">
+      <div class="book"><strong><em>My Ántonia</em></strong><span>Willa Cather</span></div>
+      <div class="book"><strong><em>Old Jules</em></strong><span>Mari Sandoz</span></div>
+      <div class="book"><strong><em>The Man Who Shot Liberty Valance</em></strong><span>Dorothy M. Johnson</span></div>
+      <div class="book"><strong><em>Little House on the Prairie</em></strong><span>Laura Ingalls Wilder</span></div>
+      <div class="book"><strong><em>Westering Women</em></strong><span>Sandra Dallas</span></div>
+      <div class="book"><strong><em>These Is My Words</em></strong><span>Nancy E. Turner</span></div>
+      <div class="book"><strong><em>Parrie Haynes Ranch: A Promise Kept</em></strong><span>BJ Stone</span></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="alt" id="recognition">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Literary Tradition Recognition</div>
+      <h2>Honoring women who carry forward the great traditions of Western storytelling.</h2>
+      <p>Some authors remind us of the qualities that made the classic Western masters unforgettable. These recognitions celebrate shared literary strengths—not imitation—and give readers another way to discover female authors whose work stands in a familiar Western tradition.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="seal">★</div>
+        <span class="kicker">Classic Frontier Tradition</span>
+        <h3>In the Spirit of Zane Grey</h3>
+        <p>For a female Western author whose writing is especially strong in sweeping landscapes, frontier conflict, romance, moral struggle, and the dramatic pull of the open West.</p>
+        <p><strong>Recognition looks for:</strong> vivid Western settings, adventure, emotional stakes, memorable frontier characters, and a strong sense of place.</p>
+      </article>
+
+      <article class="card">
+        <div class="seal">✦</div>
+        <span class="kicker">Storyteller Tradition</span>
+        <h3>In the Spirit of Louis L’Amour</h3>
+        <p>For a female Western author whose work reflects fast-moving storytelling, strong character, survival, honor, perseverance, and practical knowledge of Western life.</p>
+        <p><strong>Recognition looks for:</strong> authentic detail, action, courage, family or community loyalty, and highly readable storytelling.</p>
+      </article>
+
+      <article class="card">
+        <div class="seal">◆</div>
+        <span class="kicker">Character & Consequence</span>
+        <h3>In the Spirit of Dorothy M. Johnson</h3>
+        <p>For a female author whose Western writing explores difficult choices, human character, frontier morality, and the lasting consequences of decisions.</p>
+        <p><strong>Recognition looks for:</strong> psychological depth, restraint, strong short-form or novel storytelling, and characters who remain with the reader.</p>
+      </article>
+
+      <article class="card">
+        <div class="seal">✺</div>
+        <span class="kicker">Landscape & Legacy</span>
+        <h3>In the Spirit of Willa Cather</h3>
+        <p>For a female author whose work gives unusual power to landscape, memory, migration, community, and the emotional meaning of Western place.</p>
+        <p><strong>Recognition looks for:</strong> literary depth, evocative landscape, heritage, belonging, and the relationship between people and the land.</p>
+      </article>
+
+      <article class="card">
+        <div class="seal">➤</div>
+        <span class="kicker">Modern Western Voice</span>
+        <h3>Tradition Carried Forward</h3>
+        <p>For a contemporary female author who blends classic Western values and storytelling with a distinctly modern voice, perspective, setting, or subject.</p>
+        <p><strong>Recognition looks for:</strong> originality, strong Western identity, contemporary relevance, and respect for the genre’s storytelling roots.</p>
+      </article>
+
+      <article class="card">
+        <div class="seal">♞</div>
+        <span class="kicker">Reader Nomination</span>
+        <h3>Who Does This Author Remind You Of?</h3>
+        <p>Readers and members may nominate a female Western author whose writing strongly evokes a classic Western storytelling tradition.</p>
+        <p><a href="#submit"><strong>Nominate an author →</strong></a></p>
+      </article>
+    </div>
+
+    <div class="disclosure">
+      <strong>About these recognitions:</strong> These are editorial recognition categories of Female Western Authors — Recognition & Reviews. They are not awards issued by, sponsored by, or affiliated with the estates, publishers, or representatives of Zane Grey, Louis L’Amour, Dorothy M. Johnson, or Willa Cather. Comparisons refer only to broad literary characteristics and traditions.
+    </div>
+  </div>
+</section>
+
+<section id="review-guide">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What We Review</div>
+      <h2>Western writing is bigger than one shelf.</h2>
+      <p>Our scope reaches across the many ways women tell the story of the West.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><span class="kicker">Fiction</span><h3>Western & Historical Fiction</h3><p>Traditional Westerns, frontier fiction, ranch stories, family sagas, historical romance, and stories shaped by Western landscapes and communities.</p></article>
+      <article class="card"><span class="kicker">History</span><h3>History & Biography</h3><p>Regional history, biographies, documentary works, family histories, community histories, and books preserving people or places of the American West.</p></article>
+      <article class="card"><span class="kicker">True Life</span><h3>Memoir & Ranch Life</h3><p>Memoir, horsemanship, ranching, rural life, cowboy and cowgirl culture, trail stories, and firsthand accounts of Western experience.</p></article>
+      <article class="card"><span class="kicker">Genre</span><h3>Mystery & Adventure</h3><p>Mysteries, suspense, and adventure stories whose characters, setting, or history are substantially connected to the West.</p></article>
+      <article class="card"><span class="kicker">Literary</span><h3>Poetry & Essays</h3><p>Poetry, essays, short stories, and literary writing that explore Western identity, landscape, heritage, work, and memory.</p></article>
+      <article class="card"><span class="kicker">Young Readers</span><h3>Children & Young Adult</h3><p>Age-appropriate fiction and nonfiction that introduce younger readers to Western history, culture, animals, landscapes, and adventure.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Review Promise</div>
+      <h2>Non-paid reviews. Clear standards.</h2>
+      <p>Reviews should help readers understand a book—not function as purchased praise.</p>
+    </div>
+
+    <div class="promise">
+      <article class="card">
+        <div class="seal">★</div>
+        <h3>Non-paid</h3>
+        <p>No author pays for a favorable review or recognition feature. Payment is not a condition of consideration.</p>
+      </article>
+      <article class="card">
+        <div class="seal">✦</div>
+        <h3>Thoughtful</h3>
+        <p>Reviews can consider storytelling, character, historical grounding, sense of place, readability, originality, and contribution to Western literature.</p>
+      </article>
+      <article class="card">
+        <div class="seal">◆</div>
+        <h3>Transparent</h3>
+        <p>If a complimentary review copy, personal connection, sponsorship, or other relevant relationship exists, it should be disclosed.</p>
+      </article>
+    </div>
+
+    <div class="disclosure"><strong>As the review archive grows:</strong> each published review can receive its own permanent page with the book title, author, publication information, review text, reviewer name, and disclosure statement.</div>
+  </div>
+</section>
+
+
+<section class="alt" id="index">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Author Index</div>
+      <h2>Follow the trail by author.</h2>
+      <p>This growing directory brings heritage voices and contemporary Western writers together in one easy place to explore.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <span class="kicker">A–C</span>
+        <h3>B. M. Bower</h3>
+        <p>Early mass-market Western fiction • Montana ranch life</p>
+        <h3>Willa Cather</h3>
+        <p>Prairie literature • Migration • Place</p>
+      </article>
+      <article class="card">
+        <span class="kicker">D–H</span>
+        <h3>Sandra Dallas</h3>
+        <p>Historical fiction • Colorado • Women’s lives</p>
+        <h3>Anne Hillerman</h3>
+        <p>Southwestern mystery • Navajo detective fiction</p>
+      </article>
+      <article class="card">
+        <span class="kicker">J–M</span>
+        <h3>Dorothy M. Johnson</h3>
+        <p>Montana • Frontier short fiction</p>
+        <h3>Linda Lael Miller</h3>
+        <p>Historical & contemporary Western fiction</p>
+        <h3>Mourning Dove</h3>
+        <p>Indigenous stories • Pacific Northwest</p>
+      </article>
+      <article class="card">
+        <span class="kicker">S–T</span>
+        <h3>Mari Sandoz</h3>
+        <p>Great Plains history • Biography • Fiction</p>
+        <h3>BJ Stone</h3>
+        <p>Western history • Ranch life • Equine experience</p>
+        <h3>Jodi Thomas</h3>
+        <p>Texas historical & contemporary fiction</p>
+      </article>
+      <article class="card">
+        <span class="kicker">T–W</span>
+        <h3>Nancy E. Turner</h3>
+        <p>Arizona frontier fiction</p>
+        <h3>Karen Witemeyer</h3>
+        <p>Texas historical Western romance</p>
+        <h3>Laura Ingalls Wilder</h3>
+        <p>Pioneer literature • Family history</p>
+      </article>
+      <article class="card">
+        <span class="kicker">Growing Directory</span>
+        <h3>Who should be here next?</h3>
+        <p>Members and readers can suggest another female Western author or title for consideration using the submission form below.</p>
+        <p><a href="#submit"><strong>Suggest an author →</strong></a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="submit">
+  <div class="wrap">
+    <div class="submit">
+      <div>
+        <div class="eyebrow" style="color:#e4b66d">Submissions</div>
+        <h2>Help us discover another Western woman writer.</h2>
+        <p>Authors, readers, publishers, historians, libraries, and book clubs may suggest female Western authors and titles for consideration, including nominations for one of our Literary Tradition Recognitions.</p>
+        <p><strong>There is no review fee.</strong></p>
+      </div>
+      <form id="submissionForm">
+        <label>Author name
+          <input id="authorName" required placeholder="Author name">
+        </label>
+        <label>Book title
+          <input id="bookTitle" placeholder="Book title">
+        </label>
+        <label>Category
+          <select id="category">
+            <option>Western Fiction</option>
+            <option>Historical Fiction</option>
+            <option>Western History</option>
+            <option>Memoir / Biography</option>
+            <option>Ranch / Rural Life</option>
+            <option>Poetry</option>
+            <option>Southwest Mystery</option>
+            <option>Other Western Writing</option>
+            <option>Literary Tradition Recognition</option>
+          </select>
+        </label>
+        <label>Your name
+          <input id="submitterName" placeholder="Your name">
+        </label>
+        <label class="full">Why should this author or book be considered?
+          <textarea id="reason" placeholder="Tell us about the author, book, or contribution."></textarea>
+        </label>
+        <button type="submit">Copy Submission Details</button>
+        <p class="note" id="formNote">This free starter site does not store personal information on a server. The button copies the completed submission for use in email or messaging once the organization’s official contact method is added.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <strong>Female Western Authors — Recognition & Reviews</strong><br>
+      <span class="small">Founded 2020 • 2,000+ members • Recognizing Female Western Authors</span>
+    </div>
+    <div class="small">© <span id="year"></span> Female Western Authors. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("submissionForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const text =
+`FEMALE WESTERN AUTHORS — SUBMISSION
+
+Author: ${document.getElementById("authorName").value}
+Book: ${document.getElementById("bookTitle").value}
+Category: ${document.getElementById("category").value}
+Submitted by: ${document.getElementById("submitterName").value}
+
+Reason for consideration:
+${document.getElementById("reason").value}`;
+  const note = document.getElementById("formNote");
+  try{
+    await navigator.clipboard.writeText(text);
+    note.textContent = "Submission details copied. Paste them into your email or message.";
+  }catch(err){
+    note.textContent = "Your browser blocked automatic copying. Select your entries and copy them manually.";
+  }
+});
+</script>
+</body>
+</html>
